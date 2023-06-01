@@ -1,0 +1,18 @@
+@layout('layouts/app')
+
+@section('content')
+
+    <h1>User Profile</h1>
+
+
+    
+
+    profile
+    {{ auth.user.username }}
+
+    <form action="/verify-email" method="post">
+        <input type="submit" value="Resend">
+    </form>
+    
+
+@endsection
