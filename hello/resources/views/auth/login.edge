@@ -1,0 +1,40 @@
+@layout('layouts/app')
+
+@section('content')
+
+    <div>
+        <h3 class="display-3">Log in</h3>
+        <h5 class="display-5">Enter access data</h5>
+        <figure class="figure">
+
+            <form action="/login" method="post">
+
+                <div class="mb-3 row" style="max-width:400px; margin: auto;">
+                    <label for="email" class="form-label">Your Email*</label>
+                    <input type="email" class="form-control" placeholder="some@some.com" name="email" id="email">
+                    @if(flashMessages.has('errors.email'))
+                    <small>{{flashMessages.get('errors.email')}}</small>
+                    @endif
+                </div> 
+
+                <div class="mb-3 row" style="max-width:400px; margin: auto;">
+                    <label for="password" class="form-label">Your password*</label>
+                    <input type="password" class="form-control" placeholder="password" name="password" id="password">
+                    @if(flashMessages.has('errors.password'))
+                    <small>{{flashMessages.get('errors.password')}}</small>
+                    @endif
+                </div> 
+                <br>
+                    <button type="submit" value="Login" class="btn btn-outline-success">Login</button><br><br>
+
+                    Dont have account?<br>
+                    
+                <button type="submit" value="login" class="btn btn-outline-primary">
+                    <a class="navbar-brand" href="{{ route('/signup') }}">Signup</a>
+                </button>
+                
+            </form>
+        </figure>
+    </div>
+
+@endsection

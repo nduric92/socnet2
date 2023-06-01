@@ -1,0 +1,60 @@
+@layout('layouts/app')
+
+@section('content')
+
+    <div>
+        <h3 class="display-3">Sign up</h3>
+        <h5 class="display-5">Enter access data</h5>
+        <figure class="figure">
+
+            <form action="/signup" method="post">
+
+                <div class="mb-3 row" style="max-width:400px; margin: auto;">
+                    <label for="name" class="form-label">Your name*</label>
+                    <input type="text" class="form-control" placeholder="Name" name="name" id="name">
+                   @if(flashMessages.has('errors.name'))
+                    <small> {{ flashMessages.get('errors.name') }} </small>
+                    @end
+
+                </div> 
+
+                <div class="mb-3 row" style="max-width:400px; margin: auto;">
+                    <label for="lastname" class="form-label">Your lastname*</label>
+                    <input type="text" class="form-control" placeholder="Lastname" name="lastname" id="lastname">
+                    @if(flashMessages.has('errors.lastname'))
+                    <small>{{flashMessages.get('errors.lastname')}}</small>
+                    @end
+                </div>
+
+                <div class="mb-3 row" style="max-width:400px; margin: auto;">
+                    <label for="username" class="form-label">Your username*</label>
+                    <input type="text" class="form-control" placeholder="username" name="username" id="username">
+                    @if(flashMessages.has('errors.username'))
+                    <small>{{flashMessages.get('errors.username')}}</small>
+                    @end
+                </div>  
+
+                <div class="mb-3 row" style="max-width:400px; margin: auto;">
+                    <label for="email" class="form-label">Your Email*</label>
+                    <input type="email" class="form-control" placeholder="some@some.com" name="email" id="email">
+                    @if(flashMessages.has('errors.email'))
+                    <small>{{flashMessages.get('errors.email')}}</small>
+                    @end
+                </div> 
+
+                <div class="mb-3 row" style="max-width:400px; margin: auto;">
+                    <label for="password" class="form-label">Your password*</label>
+                    <input type="password" class="form-control" placeholder="password" name="password" id="password">
+                    @if(flashMessages.has('errors.password'))
+                    <small>{{flashMessages.get('errors.password')}}</small>
+                    @end
+                </div> 
+
+                <br>
+                    <button type="submit" value="Sign Up" class="btn btn-outline-success">Signup</button>
+                    
+            </form>
+        </figure>
+    </div>
+
+@endsection
