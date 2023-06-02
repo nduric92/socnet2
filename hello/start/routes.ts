@@ -10,8 +10,9 @@ Route.get('/', async ({ view }) => {
 Route.on('/home').render('home')
 Route.on('/about').render('about')
 
-Route.on('/signup').render('auth/login')
-Route.on('/login').render('auth/login')
+Route.on('/signup').render('auth/signup').middleware('guest')
+Route.on('/login').render('auth/login').middleware('guest')
+
 
 
 Route.group(() => {
