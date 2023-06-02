@@ -43,7 +43,7 @@ export default class AuthController {
 
         user?.sendVerificationEmail()
 
-        return response.redirect('/login')
+        return response.redirect('/')
     }
 
     public async login({request, auth, response}:HttpContextContract){

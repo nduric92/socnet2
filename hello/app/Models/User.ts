@@ -2,6 +2,10 @@ import { DateTime } from 'luxon'
 import { BaseModel, column, beforeSave } from '@ioc:Adonis/Lucid/Orm'
 import Hash from '@ioc:Adonis/Core/Hash'
 import Mail from '@ioc:Adonis/Addons/Mail'
+import Route from '@ioc:Adonis/Core/Route'
+import Env from '@ioc:Adonis/Core/Env'
+
+
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -22,6 +26,9 @@ export default class User extends BaseModel {
   @column()
   public password: string
 
+  @column.dateTime()
+  public email_verified_at: DateTime
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
@@ -36,12 +43,15 @@ export default class User extends BaseModel {
   }
 
   public async sendVerificationEmail(){
-    await Mail.send((message) => {
+
+    const url = Env.get('APP_URL') + Route.makeSignedUrl('verifyEmail', { params: { email: this.email }, expiresIn: '20m',} )
+
+    Mail.send((message) => {
       message
       .from('verify@socnet2.com')
       .to(this.email)
       .subject('Verify your email')
-      .htmlView('emails/verify', { user:this })
+      .htmlView('emails/verify', { user:this, url })
   })
   }
 

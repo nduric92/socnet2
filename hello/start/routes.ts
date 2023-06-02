@@ -18,6 +18,7 @@ Route.group(() => {
   Route.on('/profile').render('profile')
 }).middleware('auth')
 
+Route.get('/verify-email/:email', 'EmailVerifiesController.confirm').as('verifyEmail')
 Route.post('/verify-email', 'EmailVerifiesController.index').middleware('auth')
 
 Route.post('/signup', 'AuthController.signup')

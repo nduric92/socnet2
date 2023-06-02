@@ -3,16 +3,16 @@
 @section('content')
 
     <h1>User Profile</h1>
-
-
     
 
     profile
     {{ auth.user.username }}
 
+    @if(auth.user.email_verified_at === null)
     <form action="/verify-email" method="post">
         <input type="submit" value="Resend">
     </form>
+    @end
     
 
 @endsection
