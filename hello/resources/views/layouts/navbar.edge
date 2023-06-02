@@ -4,16 +4,16 @@
             <ul class="navbar-nav">
                 
                  @if(auth.isAuthenticated)
-                <li class="nav-item">
-                    <a class="navbar-brand" href="{{ route('/profile') }}">Profile</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{{ route('/:username') }}">Profile</a>
+                    </li>
                 @else
-                <li class="nav-item">
-                    <a class="navbar-brand" href="{{ route('/') }}">Social Network</a>
-                </li>
-                <li class="nav-item">
-                    <a class="navbar-brand" href="{{ route('/about') }}">About</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{{ route('/') }}">Social Network</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{{ route('/about') }}">About</a>
+                    </li>
                 @end
                 
             </ul>

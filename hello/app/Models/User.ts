@@ -26,6 +26,12 @@ export default class User extends BaseModel {
   @column()
   public password: string
 
+  @column()
+  public avatar: string
+
+  @column()
+  public details: string
+
   @column.dateTime()
   public email_verified_at: DateTime
 

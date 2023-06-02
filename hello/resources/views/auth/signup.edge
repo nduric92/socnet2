@@ -10,7 +10,7 @@
             <form action="/signup" method="post">
 
                 <div class="mb-3 row" style="max-width:400px; margin: auto;">
-                    <label for="name" class="form-label">Your name*</label>
+                    <label for="name" class="form-label">Name*</label>
                     <input type="text" class="form-control" placeholder="Name" name="name" id="name">
                    @if(flashMessages.has('errors.name'))
                     <div id="emailHelp" class="form-text" style="color: red;"> {{ flashMessages.get('errors.name') }} </div>
@@ -19,7 +19,7 @@
                 </div> 
 
                 <div class="mb-3 row" style="max-width:400px; margin: auto;">
-                    <label for="lastname" class="form-label">Your lastname*</label>
+                    <label for="lastname" class="form-label">Lastname*</label>
                     <input type="text" class="form-control" placeholder="Lastname" name="lastname" id="lastname">
                     @if(flashMessages.has('errors.lastname'))
                     <div id="emailHelp" class="form-text" style="color: red;">{{flashMessages.get('errors.lastname')}}</div>
@@ -27,15 +27,15 @@
                 </div>
 
                 <div class="mb-3 row" style="max-width:400px; margin: auto;">
-                    <label for="username" class="form-label">Your username*</label>
-                    <input type="text" class="form-control" placeholder="username" name="username" id="username">
+                    <label for="username" class="form-label">Username*</label>
+                    <input type="text" class="form-control" placeholder="Username" name="username" id="username">
                     @if(flashMessages.has('errors.username'))
                     <div id="emailHelp" class="form-text" style="color: red;">{{flashMessages.get('errors.username')}}</div>
                     @end
                 </div>  
 
                 <div class="mb-3 row" style="max-width:400px; margin: auto;">
-                    <label for="email" class="form-label">Your Email*</label>
+                    <label for="email" class="form-label">Email*</label>
                     <input type="email" class="form-control" placeholder="some@some.com" name="email" id="email">
                     @if(flashMessages.has('errors.email'))
                     <div id="emailHelp" class="form-text" style="color: red;">{{flashMessages.get('errors.email')}}</div>
@@ -43,7 +43,7 @@
                 </div> 
 
                 <div class="mb-3 row" style="max-width:400px; margin: auto;">
-                    <label for="password" class="form-label">Your password*</label>
+                    <label for="password" class="form-label">Password*</label>
                     <input type="password" class="form-control" placeholder="password" name="password" id="password">
                     @if(flashMessages.has('errors.password'))
                     <div id="emailHelp" class="form-text" style="color: red;">{{flashMessages.get('errors.password')}}</div>

@@ -8,8 +8,10 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('name')
       table.string('lastname')
-      table.string('username')
-      table.string('email')
+      table.string('username',20).index()
+      table.string('avatar').nullable()
+      table.text('details').nullable()
+      table.string('email').index()
       table.dateTime('email_verified_at').nullable()
       table.string('password')
       
