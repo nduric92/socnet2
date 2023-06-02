@@ -67,7 +67,7 @@ export default class AuthController {
         const user = await auth.attempt(email,password)
 
 
-        return response.redirect('/profile')
+        return response.redirect(`/${user.username}`)
 
 
     }

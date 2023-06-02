@@ -2,17 +2,81 @@
 
 @section('content')
 
-    <h1>User Profile</h1>
-    
+       
 
-    profile
-    {{ auth.user.username }}
+    <h1>Profile {{ auth.user.username }} </h1>
 
     @if(auth.user.email_verified_at === null)
     <form action="/verify-email" method="post">
         <input type="submit" value="Resend">
     </form>
     @end
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="card text-center" style="width: 18rem;">
+                <img src="{{auth.user.avatar}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ auth.user.username }}</h5>
+                    <p class="card-text" placeholder="Info">{{auth.user.details}}</p>
+                </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="/accounts/edit"><button type="button" class="btn btn-secondary">Edit Profile</button></a></li>               
+                    </ul>
+                <div class="card-body">
+                    <p class="h4"><span>149</span> Posts</p>
+                    <p class="h4"><span>100</span> Followers</p>
+                    <p class="h4"><span>200</span> Following</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h3 class="display-6">POSTS</h3>
+
+        <div class="row justify-content-md-center">
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                        CONTENT
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                        CONTENT
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                        CONTENT
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                        CONTENT
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        
+
+    </div>
+
+
     
 
 @endsection
+
+
