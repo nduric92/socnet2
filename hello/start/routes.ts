@@ -2,12 +2,11 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('home')
-})
+
+Route.get('/', 'HomeController.index')
 
 
-Route.on('/home').render('home')
+//Route.on('/home').render('home')
 Route.on('/about').render('about')
 
 Route.on('/signup').render('auth/signup').middleware('guest')
@@ -21,8 +20,13 @@ Route.post('/signup', 'AuthController.signup')
 Route.post('/login', 'AuthController.login')
 Route.post('/logout', 'AuthController.logout')
 
+Route.get('/posts/create', 'PostsController.create').middleware('auth')
+Route.post('/posts/create', 'PostsController.store').middleware('auth')
+
+
 Route.get('/accounts/edit', 'ProfilesController.edit').middleware('auth')
 Route.post('/accounts/edit', 'ProfilesController.update').middleware('auth')
+
 
 
 

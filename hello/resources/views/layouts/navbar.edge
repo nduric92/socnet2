@@ -3,24 +3,22 @@
         <div class="container-fluid">
             <ul class="navbar-nav">
                 
-                 @if(auth.isAuthenticated)
-                    <li class="nav-item">
-                        <a class="navbar-brand" href="#">Profile</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="navbar-brand" href="{{ route('/') }}">Social Network</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="navbar-brand" href="{{ route('/about') }}">About</a>
-                    </li>
-                @end
+                 
+                
+                <li class="nav-item">
+                    <a class="navbar-brand" href="{{ route('/') }}">SocNet2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="{{ route('/about') }}">About</a>
+                </li>
+                
                 
             </ul>
         </div>
     </nav>
     @if(auth.isAuthenticated)
         <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-right: 20px;">
+            <a href="/{{auth.user.username}}"><button type="button" class="btn btn-outline-primary">Profile</button></a>
             <form action="/logout" method="post">
                 <button type="submit" class="btn btn-outline-danger">Logout {{auth.user.username}} </button>
             </form>

@@ -16,51 +16,47 @@
 </head>
     <body>
 
-            @include('layouts/navbar')
+        @include('layouts/navbar')
 
-            @layout('layouts/app')
+        @layout('layouts/app')
 
-            @section('content')
+        @section('content')
 
-                <h1>Update Details</h1>
-                
-                <div class="container text-center">
+            <h1>Update Details</h1>
+            
+            <div class="container text-center">
                 <div class="row justify-content-md-center">
-                <div class="card-body">
+                    <div class="card-body">
+                        <form action="" method="post" enctype="multipart/form-data">
+                                    <div class="col">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" type="text" name="details" placeholder="Your bio" id="floatingTextarea2" style="height: 100px">{{auth.user.details}}</textarea>
+                                            <label for="floatingTextarea2">Your bio</label>
+                                        </div>
+                                    </div><hr>
+
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <input type="file" name="avatar" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                    </div><hr>
+
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <button class="btn btn-secondary" type="submit" value="Update">Update</button>
+                                        </div>
+                                    </div>   
+
+                                    
+                                                        
+                        </form>
 
 
-                <form action="" method="post" enctype="multipart/form-data">
+                    </div>
+                </div>
+            </div>
 
-                            <div class="col">
-                                <div class="form-floating">
-                                    <textarea class="form-control" type="text" name="details" placeholder="Your bio" id="floatingTextarea2" style="height: 100px">{{auth.user.details}}</textarea>
-                                    <label for="floatingTextarea2">Your bio</label>
-                                </div>
-                            </div><hr>
-
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <input type="file" name="avatar" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                                </div>
-                            </div><hr>
-
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <button class="btn btn-secondary" type="submit" value="Update">Update</button>
-                                </div>
-                            </div>   
-
-                            
-                                                
-                </form>
-
-
-                </div></div></div>
-
-                @endsection
-  
-        
-
+        @endsection
 
         <script src="../js/bootstrap.bundle.js"></script>
     </body>
