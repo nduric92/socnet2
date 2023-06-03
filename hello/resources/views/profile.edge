@@ -15,10 +15,13 @@
     @endif
 
     <div class="container">
-
-        <div class="row justify-content-center">
-            <div class="card text-center" style="width: 18rem;">
+        <div class="card text-center" style="margin-top: 20px;">
+        <div class="row justify-content-center" style="margin: 10px;">
+            <div class="col-sm-6 mb-3 mb-sm-0" style="width: 18rem;">
                 <img src="{{user.avatar}}" class="card-img-top" style="max-height: 300px;" alt="...">
+                
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-0">
                 <div class="card-body">
                     <h4 class="card-title">{{ user.username }}</h4>
                     <p class="card-text" placeholder="Info">{{user.details}}</p>
@@ -34,6 +37,7 @@
                     <p class="h4"><span>200</span> Following</p>
                 </div>
             </div>
+        </div>
         </div>
 
         <hr>
