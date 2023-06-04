@@ -65,7 +65,7 @@ export default class User extends BaseModel {
 
   public async sendVerificationEmail(){
 
-    const url = Env.get('APP_URL') + Route.makeSignedUrl('verifyEmail', { params: { email: this.email }, expiresIn: '20m',} )
+    const url = Env.get('APP_URL') + Route.makeSignedUrl('verifyEmail', { params: { email: this.email }, expiresIn: '45m',} )
 
     Mail.send((message) => {
       message
