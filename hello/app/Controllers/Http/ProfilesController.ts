@@ -19,8 +19,9 @@ export default class ProfilesController {
         await user.load('posts')
         await user.load('followings')
         await auth.user!.load('followings')
+        const followers = await user.followers()
 
-        return view.render('profile',{ user })
+        return view.render('profile',{ user, followers })
     }
 
     public async edit({view}:HttpContextContract){

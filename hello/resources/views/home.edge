@@ -12,7 +12,7 @@
         <div class="card" style="width: 500px;">
             <img src="{{post.image}}"  width="500px" class="card-img-top" style="margin-top: 10px;" alt="...">
             <div class="card-body">
-                <h5 class="card-title">{{post.user.username}}</h5>
+                <a href="/{{post.user.username}}" class="navbar-brand"><h5 class="card-title">{{post.user.username}}</h5></a>
                 <p class="card-text">{{post.caption}}</p>
                 <small><p class="card-text">{{post.createdAt.toFormat('DD')}}</p></small>
             </div>
