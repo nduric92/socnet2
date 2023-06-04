@@ -12,7 +12,7 @@
             <p>Please Verify your account</p>
         </form>
 
-    @endif
+    @else
 
     <div class="container">
         <div class="card text-center" style="margin-top: 20px;">
@@ -28,7 +28,19 @@
                 </div>
                     <ul class="list-group list-group-flush">
                         @if(auth.user.id === user.id)
-                            <li class="list-group-item"><a href="/accounts/edit"><button type="button" class="btn btn-secondary">Edit Profile</button></a></li>               
+                            <a href="/accounts/edit"><button type="submit" class="btn btn-secondary">Edit Profile</button></a>
+                        @else
+
+                             @if(auth.user.followings.map(f => f.followingId).includes(user.id))
+                                <form action="{{`/follow/${user.id}?_method=delete`}}" method="post">
+                                    <button type="submit" class="btn btn-secondary">Unfollow</button>
+                                </form>
+                            @else
+                                <form action="{{`/follow/${user.id}`}}" method="post">
+                                    <button type="submit" class="btn btn-secondary">Follow</button>
+                                </form>
+                            @endif
+
                         @endif
                     </ul>
                 <div class="card-body">
@@ -72,7 +84,7 @@
     </div>
 
 
-    
+    @end
 
 @endsection
 

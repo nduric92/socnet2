@@ -5,6 +5,7 @@ import Mail from '@ioc:Adonis/Addons/Mail'
 import Route from '@ioc:Adonis/Core/Route'
 import Env from '@ioc:Adonis/Core/Env'
 import Post from 'App/Models/Post'
+import Following from './Following'
 
 
 
@@ -45,6 +46,9 @@ export default class User extends BaseModel {
 
   @hasMany(() => Post)
   public posts: HasMany<typeof Post>
+
+  @hasMany(() => Following)
+  public followings: HasMany<typeof Following>
 
 
   @beforeSave()

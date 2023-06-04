@@ -3,7 +3,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 
-Route.get('/', 'HomeController.index')
+Route.get('/', 'HomeController.index').middleware('auth')
 
 
 //Route.on('/home').render('home')
@@ -22,6 +22,9 @@ Route.post('/logout', 'AuthController.logout')
 
 Route.get('/posts/create', 'PostsController.create').middleware('auth')
 Route.post('/posts/create', 'PostsController.store').middleware('auth')
+
+Route.post('/follow/:userid', 'FollowsController.store').middleware('auth')
+Route.delete('/follow/:userid', 'FollowsController.destroy').middleware
 
 
 Route.get('/accounts/edit', 'ProfilesController.edit').middleware('auth')
